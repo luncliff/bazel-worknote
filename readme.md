@@ -6,4 +6,10 @@
 
 ### 준비
 
-* Bazel 2.2.0
+* Bazel 2.2.0 
+    * https://bazel.build
+    * https://github.com/bazelbuild/bazel
+
+## 기록
+
+* [1회차](./phase_1.md)
