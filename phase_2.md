@@ -129,13 +129,15 @@ bazel build //test:test_2 --cxxopt /utf-8
 비슷한 방법으로 컴파일러를 지정할 수 있다는 것을 알게 되었다.
 
 ```
-bazel test //test:test_1 --compiler=clang-cl  
+bazel test //test:test_2 --compiler=clang-cl --verbose_failures
 ```
 
 Bazel 테스트에서는 출력 결과가 보이지 않으므로, WORKSPACE.bazel 옆에 생성된 bazel-bin 폴더에서 프로그램을 찾아 직접 실행시켜 보았다.
 
+> bazel-testlogs 폴더에 `cc_test`마다 .log 파일이 남는다.
+
 ```
-./bazel-bin./test/test_2.exe
+./bazel-bin/test/test_2.exe
 1 certs!
 Subject:C=US, ST=California, L=Los Angeles, O=Internet Corporation for Assigned Names and Numbers, OU=Technology, 
 CN=www.example.org

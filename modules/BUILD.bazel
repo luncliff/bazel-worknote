@@ -1,0 +1,20 @@
+
+cc_library(
+    name = "wcs",
+    includes = [
+        "external/zlib"
+    ],
+    hdrs = [
+        "wcs.h"
+    ],
+    srcs = [
+        "wcs.cpp", "wcs_z.cpp",
+    ],
+    deps = [ 
+        "@curl",
+        # "@zlib"
+    ],
+    copts = [
+        "/W4", "/std:c++17"
+    ],
+)
