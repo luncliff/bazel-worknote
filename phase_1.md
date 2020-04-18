@@ -25,6 +25,8 @@
     └── test_1.cpp
 ```
 
+> [2회차](./phase_2.md)에서 파일 이름들이 변경되었음
+
 ### Project
 
 기본적으로 배포된 .zip 파일들을 사용하는 방법으로 외부 모듈들을 확보할 계획이므로, `WORKSPACE`는 간단하게 이정도만. `wcs`는 Web Contents Support의 약자(acronym).
@@ -38,6 +40,11 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 프로젝트는 x64, Windows 환경을 기본으로 한다. 이는 최상위 `BUILD` 파일에 작성.  
 ~~[뿌슝빠슝 `clang-cl`을 쓰는 윈도우 개발자가 있다?](https://chocolatey.org/packages/llvm)~~
+
+
+여기서 Clang을 사용하고 있는 것에는 특별한 이유는 없다. 공식적인 지원범위에 해당하는 것으로 보이길래 채택하였을 뿐이다.
+
+* https://docs.bazel.build/versions/2.2.0/windows.html#build-c-with-clang
 
 ```bazel
 # BUILD
@@ -62,15 +69,21 @@ cc_test(
 )
 ```
 
-### Build/Run
+### Source Code
 
 [test_1.cpp](./test/test_1.cpp)는 간단히 [wmain](https://docs.microsoft.com/en-us/cpp/c-language/using-wmain)의 인자를 출력한다.
+
+## Usage
+
+### Build
 
 CLI에서 빌드를 명령할 때, 표기 순서는 `//folder/name`.
 
 ```
 bazel build //test:test_1
 ```
+
+### Test
 
 `cc_test`는 아래처럼 실행할 수 있다. 테스트 프로그램에 인자를 줄 수 는 없는 모양.
 

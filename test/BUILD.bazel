@@ -1,0 +1,23 @@
+#
+# References
+#   https://docs.bazel.build/versions/2.2.0/be/c-cpp.html
+#   https://docs.bazel.build/versions/2.2.0/build-ref.html#labels
+#
+cc_test(
+    name = "test_1",
+    srcs = ["test_1.cpp"],
+    copts = ["/W4", "/std:c++latest"],
+)
+
+cc_test(
+    name = "test_2",
+    srcs = [
+        "test_2.cpp"
+    ],
+    copts = [
+        "/W4", "/std:c++14",
+    ],
+    deps = [
+        "@curl//:curl",
+    ],
+)
